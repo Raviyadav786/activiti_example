@@ -1,0 +1,67 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+import org.activiti.engine.RepositoryService;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+public class ActivitiBootstrap {
+	public static void main(String[] args) {
+		ApplicationContext ac=SpringApplication.run(ActivitiBootstrap.class, args);
+		/*System.err.println("DataSource::"+ac.getBean(DataSource.class));
+		System.err.println("ProcessEngine:"+ac.getBean(ProcessEngine.class));
+		ProcessEngine pe=ac.getBean(ProcessEngine.class);
+		pe.getRepositoryService().createDeployment().addClasspathResource("processes/ach_flow_process.bpmn").deploy();
+		RuntimeService rs=pe.getRuntimeService();
+		System.err.println("ProcessName:::"+pe.getName());*/
+	}
+
+	/*@Bean
+	DataSource dataSource() {
+		return DataSourceBuilder.create().username("SYSTEM").driverClassName("oracle.jdbc.driver.OracleDriver")
+				.url("jdbc:oracle:thin:@localhost:1521:xe").password("ravi").build();
+	}*/
+	
+	 @Bean
+	    public CommandLineRunner init(final RepositoryService repositoryService,
+	                                  final RuntimeService runtimeService,
+	                                  final TaskService taskService) {
+
+	        return new CommandLineRunner() {
+	            @Override
+	            public void run(String... strings) throws Exception {
+	                System.err.println("Number of process definitions : "
+	                	+ repositoryService.createProcessDefinitionQuery().count());
+	                System.err.println("Number of tasks : " + taskService.createTaskQuery().count());
+	                runtimeService.startProcessInstanceByKey("ach_process");
+	                System.err.println("Number of tasks after process start: " + taskService.createTaskQuery().count());
+	            }
+	        };
+
+	    }
+	 @Bean
+	 public CommandLineRunner init() {
+
+	 	return new CommandLineRunner() {
+	     	public void run(String... strings) throws Exception {
+	     		ProcessService myService=new ProcessService();
+	         	myService.createDemoUsers();
+	         }
+	     };
+
+	 }
+	 @Bean
+	 @Qualifier(value = "entityManager")
+	 public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
+	     return entityManagerFactory.createEntityManager();
+	 }
+}

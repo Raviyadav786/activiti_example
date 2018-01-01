@@ -1,0 +1,9 @@
+org\boot\activiti\poc\activiti_poc_boot\ActivitiBootstrap.class
+org\boot\activiti\poc\activiti_poc_boot\Person.class
+org\boot\activiti\poc\activiti_poc_boot\ProcessService.class
+org\boot\activiti\poc\activiti_poc_boot\PersonRepository.class
+org\boot\activiti\poc\activiti_poc_boot\ActivitiBootstrap$2.class
+org\boot\activiti\poc\activiti_poc_boot\ProcessEndpPointController.class
+org\boot\activiti\poc\activiti_poc_boot\ActivitiBootstrap$1.class
+org\boot\activiti\poc\activiti_poc_boot\RequestRep.class
+org\boot\activiti\poc\activiti_poc_boot\TaskRepresentation.class

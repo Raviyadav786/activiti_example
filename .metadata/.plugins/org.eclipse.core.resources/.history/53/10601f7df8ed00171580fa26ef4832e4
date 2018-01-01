@@ -1,0 +1,5 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+public class Rest {
+
+}

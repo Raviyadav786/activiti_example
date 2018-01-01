@@ -1,0 +1,13 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class RequestRep {
+
+	private String assignee;
+
+	public String getAssignee() {
+		return assignee;
+	}
+}

@@ -1,0 +1,17 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.JavaDelegate;
+import org.springframework.web.client.RestTemplate;
+
+public class ACHServiceCall implements JavaDelegate{
+
+	@Override
+	public void execute(DelegateExecution execution) throws Exception {
+		
+		RestTemplate restTemplate=new RestTemplate();
+		System.err.println("Ach Service Response::::"+restTemplate.postForObject("http//localhost:8085/achServiceCall",new RequestRep(), String.class));
+		System.err.println("ACHServiceCall:execute..."+execution.getVariableNames());		
+	}
+
+}

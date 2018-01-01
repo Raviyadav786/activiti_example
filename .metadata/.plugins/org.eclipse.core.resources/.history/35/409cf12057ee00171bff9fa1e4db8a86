@@ -1,0 +1,16 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.JavaDelegate;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+@Component
+@Qualifier("achValidationServiceTask")
+public class ACHValidationServiceTask implements JavaDelegate {
+
+	@Override
+	public void execute(DelegateExecution execution) throws Exception {
+		System.err.println("ACHValidationServiceTask:execute..."+execution.getVariableNames());
+	}
+
+}

@@ -1,0 +1,20 @@
+package org.activiti.poc.spring_boot_activiti;
+
+import javax.sql.DataSource;
+
+import org.activiti.engine.ProcessEngine;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class ApplicationBoot {
+	public static void main(String[] args) {
+		System.out.println("ApplicationBoot.. called..");
+		ApplicationContext context=SpringApplication.run(ApplicationBoot.class, args);
+		ProcessEngine processEngine=context.getBean(ProcessEngine.class);
+		
+		System.out.println("Process  :******&&&&&&^^^^^^^^^^^^^^...."+processEngine);
+		System.out.println("Process Completed..."+context.getBean(DataSource.class));
+	}
+}

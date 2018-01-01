@@ -1,0 +1,29 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import java.net.URI;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.JavaDelegate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+@Component
+public class ACHServiceCall implements JavaDelegate{
+	@Autowired
+	ProcessEndpPointController processEndpoint;
+	@Override
+	public void execute(DelegateExecution execution) throws Exception {
+		
+		RestTemplate restTemplate=new RestTemplate();
+		ResponseEntity<String> entity=restTemplate.postForEntity(new URI("http://localhost:8085/achServiceCall"), new RequestRep(), String.class);
+		System.out.println(entity);
+		System.err.println("Ach Service Response::::"+restTemplate.postForObject("http://localhost:8085/achServiceCall",new RequestRep(), String.class));
+		
+		System.err.println("ACHServiceCall:execute..."+execution.getVariableNames());	
+		
+		System.err.println("Prcoess Completed........."+execution.getProcessInstanceId());
+		
+	}
+
+}

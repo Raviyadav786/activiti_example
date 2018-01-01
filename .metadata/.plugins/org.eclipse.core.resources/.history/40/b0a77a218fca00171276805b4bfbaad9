@@ -1,0 +1,12 @@
+package com.test.behaviour_param_chapter2;
+
+public class AppleGreenColorPredicate implements ApplePredicate {
+
+	@Override
+	public boolean test(Apple apple) {
+
+		if ("Green".equalsIgnoreCase(apple.getColor()))
+			return true;
+	}
+
+}

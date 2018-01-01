@@ -1,0 +1,35 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import org.activiti.engine.delegate.event.ActivitiEvent;
+import org.activiti.engine.delegate.event.ActivitiEventListener;
+import org.springframework.stereotype.Component;
+@Component
+public class EndProcessListener implements ActivitiEventListener {
+
+	@Override
+	public void onEvent(ActivitiEvent event) {
+		switch (event.getType()) {
+		case JOB_EXECUTION_SUCCESS: {
+			System.err.println("Execution Success...." + event.getProcessInstanceId());
+			break;
+		}
+		case JOB_EXECUTION_FAILURE: {
+			System.err.println("Execution failure...." + event.getProcessInstanceId());
+			break;
+		}
+		case ACTIVITY_STARTED:
+			System.out.println("ProcessEngine Start........"+event.getEngineServices().getRepositoryService().createDeployment().addClasspathResource("processes/ach_flow_process.bpmn").deploy(););
+		default:
+			System.err.println("Event received: " + event.getType());
+
+		}
+
+	}
+
+	@Override
+	public boolean isFailOnException() {
+		System.err.println("Listener::isFailOnException....call on failed exeception..");
+		return false;
+	}
+
+}

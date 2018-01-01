@@ -1,0 +1,9 @@
+package org.activiti.poc.activiti_quickstart;
+
+public class OnboardingRequest 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

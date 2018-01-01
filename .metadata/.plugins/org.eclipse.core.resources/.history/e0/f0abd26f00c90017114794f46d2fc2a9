@@ -1,0 +1,21 @@
+package com.test.methodref.prc;
+
+import java.io.File;
+import java.io.FileFilter;
+
+public class MethodReference1 {
+
+	public static void main(String[] args) {
+
+		File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
+
+			@Override
+			public boolean accept(File file) {
+
+				return file.isHidden();
+			}
+		});
+
+	}
+
+}

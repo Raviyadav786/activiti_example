@@ -1,0 +1,24 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import java.util.Map;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.JavaDelegate;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+@Component
+@Qualifier("achValidationServiceTask")
+public class ACHValidationServiceTask implements JavaDelegate {
+
+	@Override
+	public void execute(DelegateExecution execution) throws Exception {
+		
+		Map<String,Object> data=execution.getVariables();
+		
+		for(String value:data.keySet())
+     		System.out.println("Data Of Request::"+value);
+		
+		System.err.println("ACHValidationServiceTask:execute..."+execution.getVariableNames());
+	}
+
+}

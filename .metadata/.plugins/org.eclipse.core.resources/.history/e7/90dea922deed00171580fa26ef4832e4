@@ -1,0 +1,11 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ActivitiBootstrap {
+	public static void main(String[] args) {
+		SpringApplication.run(ActivitiBootstrap.class, args);
+	}
+}

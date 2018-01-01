@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="demo"/>
+<aop-project name="activiti_poc_boot"/>
+<aop-project name="activiti-quickstart"/>
+<aop-project name="spring-boot-activiti"/>
+</aop-reference-model>

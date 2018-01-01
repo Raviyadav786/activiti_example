@@ -1,0 +1,5 @@
+package com.activiti.poc.delegate;
+
+public class ServiceProcessDelegate {
+
+}

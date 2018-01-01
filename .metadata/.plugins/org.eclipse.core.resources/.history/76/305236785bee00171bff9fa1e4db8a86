@@ -1,0 +1,13 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.JavaDelegate;
+
+public class ACHServiceCall implements JavaDelegate{
+
+	@Override
+	public void execute(DelegateExecution execution) throws Exception {
+		System.err.println("ACHServiceCall:execute..."+execution.getVariableNames());		
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;spring-boot-activiti-poc&apos;&#x0D;&#x0A;- Original project: &apos;spring-boot-activiti-poc&apos;&#x0D;&#x0A;- Original element: &apos;spring-boot-activiti-poc/src/test/java/org.activiti.poc.spring_boot_activiti_poc&apos;" description="Delete element" element1="/src\/test\/java&lt;org.activiti.poc.spring_boot_activiti_poc" element2="/src\/test\/java&lt;org.activiti.poc" element3="/src\/test\/java&lt;org.activiti" element4="/src\/test\/java&lt;org" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1513876503462" subPackages="false" version="1.0"/>
+</session>

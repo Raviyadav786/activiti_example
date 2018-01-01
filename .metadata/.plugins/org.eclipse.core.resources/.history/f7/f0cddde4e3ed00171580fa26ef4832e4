@@ -1,0 +1,21 @@
+package org.boot.activiti.poc.activiti_poc_boot;
+
+import javax.sql.DataSource;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+public class ActivitiBootstrap {
+	public static void main(String[] args) {
+		SpringApplication.run(ActivitiBootstrap.class, args);
+	}
+
+	/*@Bean
+	DataSource dataSource() {
+		return DataSourceBuilder.create().username("SYSTEM").driverClassName("oracle.jdbc.driver.OracleDriver")
+				.url("jdbc:oracle:thin:@localhost:1521:xe").password("ravi").build();
+	}*/
+}

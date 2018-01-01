@@ -1,0 +1,45 @@
+package org.activiti.poc.spring_boot_activiti;
+
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.activiti.engine.ProcessEngine;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+public class ApplicationBoot {
+	public static void main(String[] args) {
+		System.out.println("ApplicationBoot.. called..");
+		ApplicationContext context = SpringApplication.run(ApplicationBoot.class, args);
+		ProcessEngine processEngine = context.getBean(ProcessEngine.class);
+		DataSource ds = context.getBean(DataSource.class);
+		System.out.println("Process  :******&&&&&&^^^^^^^^^^^^^^...." + processEngine);
+		try {
+			System.out.println("Process Completed..." + ds.getConnection().toString());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	/*
+	 * http://localhost:8083/h2-console/login.do?jsessionid=5a1e798dc701442c87cc4ccbc6c85a65
+	 * */
+	/*
+	 * @Bean ServletRegistrationBean h2servletRegistration(){
+	 * ServletRegistrationBean registrationBean = new ServletRegistrationBean( new
+	 * WebServlet()); registrationBean.addUrlMappings("/console/*"); return
+	 * registrationBean; }
+	 */
+
+	@Bean
+	public DataSource getDataSource() {
+		return DataSourceBuilder.create().username("SYSTEM").driverClassName("oracle.jdbc.driver.OracleDriver")
+				.url("jdbc:oracle:thin:@localhost:1521:xe").password("ravi").build();
+
+	}
+
+}
