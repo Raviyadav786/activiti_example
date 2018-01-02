@@ -39,5 +39,11 @@ public class ProcessEndpPointController {
     	return "Successfully called....";
     	
     }
+    
+    @RequestMapping(value="updateAchWF",method=RequestMethod.POST,consumes= {MediaType.APPLICATION_JSON_VALUE})
+    public void updateAchWF(@RequestBody ProcessUpdateReq processReq)
+    {
+    	System.err.println("ACH WF updated for process id:::"+processReq.getProcessId()+"::"+processReq.getStatus());
+    }
 
 }

@@ -20,6 +20,7 @@ public class ActivitiBootstrap {
 		System.err.println("ProcessEngine:"+ac.getBean(ProcessEngine.class));
 		ProcessEngine pe=ac.getBean(ProcessEngine.class);
 		pe.getRepositoryService().createDeployment().addClasspathResource("processes/ach_flow_process.bpmn").deploy();
+		pe.getRepositoryService().createDeployment().addClasspathResource("processes/sub_process_dims_wf.bpmn").deploy();
 		RuntimeService rs=pe.getRuntimeService();
 		System.err.println("ProcessName:::"+pe.getName());
 	}

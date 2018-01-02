@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
+import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,12 @@ public class ProcessService {
 				System.err.print("Person Saved Details....." + per.getId() + "::" + per.getFirstName() + "::"
 						+ per.getLastName() + "::" + per.getBirthDate());
 		}
+	}
+	public String invokeSubProcessDIMS(String request)
+	{
+		ProcessInstance pi=runtimeService.startProcessInstanceByKey("ach_process_flow");
+		System.err.println("Sub Process Started...with id"+pi.getProcessInstanceId());
+		return pi.getProcessInstanceId();
 	}
 
 }
